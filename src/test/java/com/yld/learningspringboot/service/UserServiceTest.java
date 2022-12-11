@@ -12,8 +12,7 @@ import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -36,7 +35,9 @@ class UserServiceTest {
         User user = new User(null, "Laksmi", "Daniella",
                 User.Gender.FEMALE, 22, "laksmi@email.com");
 
-        given(fakeDataDao.insertUser(any(UUID.class), eq(user))).willReturn(1);
+        // Using refEq instead of eq because we need to exclude checking userId in this test,
+        // as it's initialized inside insertUser method
+        given(fakeDataDao.insertUser(any(UUID.class), refEq(user, "userId"))).willReturn(1);
 
         ArgumentCaptor<User> captureUser = ArgumentCaptor.forClass(User.class);
 

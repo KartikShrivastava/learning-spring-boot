@@ -31,10 +31,8 @@ public class UserService {
     }
 
     public int insertUser(User user) {
-        // TODO: I guess we do not need to generate new UUID as user already has one assigned to it
         UUID userUid = UUID.randomUUID();
-        user.setUserId(userUid);
-        return userDao.insertUser(userUid, user);
+        return userDao.insertUser(userUid, User.newUser(userUid, user));
     }
 
     public List<User> getAllUsers(Optional<String> gender) {
