@@ -14,6 +14,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 // RESTful api layer or controller layer or resource layer of n-tier architecture
+// This uses Spring MVC restful api, which does not follow JAX-RS spec
+// Note: Check out other api like REST-Easy for JAX-RS based spec
 @RestController
 @RequestMapping(
         path = "/api/v1/users"
