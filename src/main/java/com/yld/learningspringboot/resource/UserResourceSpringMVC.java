@@ -90,20 +90,4 @@ public class UserResourceSpringMVC {
             return ResponseEntity.ok().build();
         return ResponseEntity.badRequest().build();
     }
-
-    class ErrorMessage {
-        String errorMessage;
-
-        public ErrorMessage(String message) {
-            this.errorMessage = message;
-        }
-
-        public String getErrorMessage() {
-            return errorMessage;
-        }
-
-        public void setErrorMessage(String errorMessage) {
-            this.errorMessage = errorMessage;
-        }
-    }
 }

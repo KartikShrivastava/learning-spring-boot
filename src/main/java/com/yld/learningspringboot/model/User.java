@@ -1,6 +1,7 @@
 package com.yld.learningspringboot.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.time.LocalDate;
@@ -8,6 +9,10 @@ import java.util.UUID;
 
 // Model class or Database object of n-tier architecture
 // this use r model is a POJO(plain old java object) or a Bean
+
+// Useful to ignore json properties such as fullName and age which does not have a corresponding variable in this class
+// This fix overcomes the error encountered during using Resteasy Client API, post man and other clients works fine
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
     private final UUID userId;
     private final String firstName;
