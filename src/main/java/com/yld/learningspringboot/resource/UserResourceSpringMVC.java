@@ -2,30 +2,32 @@ package com.yld.learningspringboot.resource;
 
 import com.yld.learningspringboot.model.User;
 import com.yld.learningspringboot.service.UserService;
-import jakarta.ws.rs.QueryParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.QueryParam;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-// RESTful api layer or controller layer or resource layer of n-tier architecture
+// RESTful api layer or controller layer or resource layer of n-tier architecture using Spring MVC
 // This uses Spring MVC restful api, which does not follow JAX-RS spec
 // Note: Check out other api like REST-Easy for JAX-RS based spec
-@RestController
-@RequestMapping(
-        path = "/api/v1/users"
-)
-public class UserResource {
+// FIXME: Uncomment below annotations [to use]/[before using] Spring MVC for REST purpose
+
+//@RestController
+//@RequestMapping(
+//        path = "/api/v1/users"
+//)
+public class UserResourceSpringMVC {
 
     private UserService userService;
 
     @Autowired
-    public UserResource(UserService userService) {
+    public UserResourceSpringMVC(UserService userService) {
         this.userService = userService;
     }
 
